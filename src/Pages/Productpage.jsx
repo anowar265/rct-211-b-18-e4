@@ -1,6 +1,29 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getProductData,
+  getProductFailure,
+  getProductRequest,
+  getProductSuccess,
+} from "../Redux/action";
+import axios from "axios";
 const Productpage = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((store) => store.products);
+
+  useEffect(() => {
+    getCountry();
+  }, []);
+
+  const getCountry = () => {
+    dispatch(getProductRequest());
+    axios
+      .get("http://localhost:8080/products")
+      .then(({ data }) => {
+        dispatch(getProductSuccess(data));
+      })
+      .catch((err) => dispatch(getProductFailure()));
+  };
   return (
     <div style={{ width: "100%" }}>
       <div>
