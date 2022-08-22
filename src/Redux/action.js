@@ -41,7 +41,6 @@ export const getProductData = (params) => (dispatch) => {
   axios
     .get("/products", params)
     .then((r) => {
-      console.log(r.data);
       dispatch(getProductSuccess(r.data));
     })
     .catch((err) => dispatch(getProductFailure()));

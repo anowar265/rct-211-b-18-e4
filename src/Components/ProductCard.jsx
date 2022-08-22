@@ -1,14 +1,14 @@
 import React from "react";
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ id, title, imageSrc, price, category }) => {
   return (
-    <div data-cy={`product-card-${item.id}`}>
-      <div data-cy="product-card-name">name</div>
-      <div data-cy="product-card-category">category</div>
+    <div data-cy={`product-card-${id}`}>
+      <div data-cy="product-card-name">{title}</div>
+      <div data-cy="product-card-category">{category}</div>
       <div>
-        <img data-cy="product-card-image" src={``} alt="Product" />
+        <img data-cy="product-card-image" src={`${imageSrc}`} alt="Product" />
       </div>
-      <div data-cy="product-card-price">€ price</div>
+      <div data-cy="product-card-price">€ {price}</div>
       <div>
         {/* Add a onClick handler for delete functionality */}
         <button data-cy="delete-button">Delete Product</button>

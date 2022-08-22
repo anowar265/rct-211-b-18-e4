@@ -7,12 +7,7 @@ import { store } from "../Redux/store";
 
 const Homepage = () => {
   //Do not modify anything in this file
-  const dispatch = useDispatch();
-  const { products } = useSelector((store) => store.products);
-  useEffect(() => {
-    dispatch(getProductData());
-  }, []);
-  console.log(products);
+
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
