@@ -6,7 +6,7 @@ const Sidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams({});
   const initialSoryByParams = searchParams.get("sortBy");
 
-  const [sortBy, setSortBy] = useState(initialSoryByParams || "");
+  const [sortBy, setSortBy] = useState("");
   const handleSortBy = (e) => {
     setSortBy(e.target.value);
   };
